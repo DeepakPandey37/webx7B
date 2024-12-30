@@ -1,0 +1,146 @@
+<style>
+    /* Global styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f7fa;
+    }
+
+    /* Container for the form */
+    .container {
+        width: 100%;
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    /* Title and Back link */
+    .admin-title {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .admin-title h2 {
+        color: #333;
+        font-size: 24px;
+    }
+
+    .admin-title a {
+        color: #007bff;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .admin-title a:hover {
+        text-decoration: underline;
+    }
+
+    /* Form label styles */
+    label {
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+
+    /* Form input fields and textarea */
+    input[type="text"], input[type="url"], textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus, input[type="url"]:focus, textarea:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    /* Textarea styling */
+    textarea {
+        resize: vertical;
+        min-height: 150px;
+    }
+
+    /* Button styling */
+    .btn {
+        background-color: #007bff;
+        color: white;
+        padding: 12px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        .admin-title h2 {
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        .btn {
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+</style>
+
+
+<div class="container">
+    <div class="admin-title">
+        <a href="/dashboard">&larr; Back</a>
+        <h2>Add New Post</h2>
+    </div>
+
+    <form action="/add-post" method="POST">
+        <!-- Title Input -->
+        <label for="title"><b>Title</b></label>
+        <input type="text" placeholder="Post Title" name="title" required>
+
+        <!-- Content Input -->
+        <label for="content"><b>Content</b></label>
+        <textarea name="content" placeholder="Write your post content here" required></textarea>
+
+        <!-- Summary Input -->
+        <label for="summary"><b>Summary</b></label>
+        <input type="text" placeholder="Brief summary of the post" name="summary">
+
+        <!-- Tag Input -->
+        <label for="tag"><b>Tag</b></label>
+        <input type="text" placeholder="Enter post tag" name="tag">
+
+        <!-- URL Input -->
+        <label for="url"><b>URL</b></label>
+        <input type="url" placeholder="Enter related URL (optional)" name="url">
+
+        <!-- Author Input -->
+        <label for="author"><b>Author</b></label>
+        <input type="text" placeholder="Author's Name" name="author" required>
+
+        <!-- Submit Button -->
+        <input type="submit" value="Add" class="btn">
+    </form>
+</div>
+

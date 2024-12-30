@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= locals.title %></title>
+  <meta name="description" content="<%= locals.description %>">
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="text/javascript" defer src="/js/script.js"></script>
+</head>
+<body>
+  
+  <div class="container">
+    <%- include('../partials/header_admin.ejs')  %>
+    <main class="main">
+      <%- body %>
+    </main>
+    <%- include('../partials/footer.ejs')  %>
+  </div>  
+
+  <style>/* General Reset and Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+    
+    /* Main Content */
+    .main {
+      padding: 20px;
+      margin-top: 20px;
+    }
+    
+    /* Header */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    
+    header h1 {
+      font-size: 24px;
+    }
+    
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+    
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    header nav a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    
+    footer p {
+      font-size: 14px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+    
+      header h1, footer p {
+        font-size: 18px;
+      }
+    
+      header nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .main {
+        padding: 10px;
+      }
+    }
+    </style>
+</body>
+</html>

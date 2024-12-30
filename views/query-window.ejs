@@ -1,0 +1,95 @@
+ <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333333;
+    }
+
+    /* Form styles */
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 16px;
+      font-weight: bold;
+      color: #555;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      resize: vertical;
+    }
+    button {
+      background-color: #4facfe;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0077cc;
+    }
+
+    /* AI Response styles */
+    .ai-response {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-left: 5px solid #4facfe;
+      border-radius: 5px;
+      text-align: left;
+    }
+    .ai-response h3 {
+      color: #444;
+    }
+    .ai-response p {
+      color: #666;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>AI Query Window</h1>
+    <form action="/help" method="POST">
+      <label for="prompt">Ask your question:</label>
+      <textarea id="prompt" name="prompt" rows="4" required></textarea>
+      <button type="submit">Ask AI</button>
+    </form>
+    
+    <% if (response) { %>
+      <div class="ai-response">
+        <h3>Your Question:</h3>
+        <p><%= prompt %></p>
+        <h3>AI's Response:</h3>
+        <p><%= response %></p>
+      </div>
+    <% } %>
+  </div>

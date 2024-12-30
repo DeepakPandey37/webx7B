@@ -1,0 +1,128 @@
+<div class="author">
+    <h1 class="author__heading">Welcome to techie blogs.</h1>
+    <p class="author__body">Web developers .</p>
+  </div>
+  
+  <img src="/img/imagebydc.jpg" alt="image by deepak" class="hero-image" width="400px" height="400px">
+  
+  <section class="articles">
+    <h2 class="articles__heading">Latest Posts</h2>
+  
+    <ul class="article-ul">
+        <% data.forEach(post => { %>
+          <li>
+            <a href="/post/<%= post._id %>">
+              <span> <%= post.title %></span>
+              <% if (post.createdAt) { %>  <!-- Check if createdAt exists -->
+                <span class="article-list__date"><%= post.createdAt.toDateString() %></span>
+              <% } else { %>
+                <span class="article-list__date">No date available</span>
+              <% } %>
+            </a>
+          </li>
+        <% }) %>
+      </ul>
+  
+  </section>
+  <style>/* Author Section */
+    .author {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    
+    .author__heading {
+      font-size: 32px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .author__body {
+      font-size: 18px;
+      color: #666;
+      font-style: italic;
+    }
+    
+    /* Hero Image */
+    .hero-image {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Latest Posts Section */
+    .articles {
+      padding: 40px 20px;
+    }
+    
+    .articles__heading {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    /* Article List */
+    .article-ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .article-ul li {
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+    }
+    
+    .article-ul a {
+      display: flex;
+      justify-content: space-between;
+      color: #333;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+    
+    .article-ul a:hover {
+      color: #4CAF50;
+    }
+    
+    .article-list__date {
+      font-size: 14px;
+      color: #888;
+      margin-left: 10px;
+      align-self: center;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .author__heading {
+        font-size: 26px;
+      }
+    
+      .author__body {
+        font-size: 16px;
+      }
+    
+      .articles__heading {
+        font-size: 24px;
+      }
+    
+      .article-ul li {
+        padding-bottom: 10px;
+      }
+    
+      .article-ul a {
+        font-size: 16px;
+      }
+    
+      .article-list__date {
+        font-size: 12px;
+      }
+    }
+    </style>

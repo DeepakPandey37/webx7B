@@ -1,0 +1,98 @@
+<div class="searchBar">
+    <div class="container">
+      <form action="/search" method="POST" class="search__form" role="search">
+        <input 
+          type="search"
+          aria-label="Seach"
+          id="searchInput"
+          name="searchTerm"
+          placeholder="Seach the site..."
+        >
+      </form>
+      <div id="searchClose">Close</div>
+    </div>
+  </div>
+  <style> /* Search Bar Styling */
+    .searchBar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    
+    /* Show search bar */
+    .searchBar.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Container */
+    .searchBar .container {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+    }
+    
+    /* Search Form */
+    .search__form {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .search__form input[type="search"] {
+      width: 100%;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: 2px solid #4CAF50;
+      border-radius: 25px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+    
+    .search__form input[type="search"]:focus {
+      border-color: #66bb6a;
+    }
+    
+    /* Close Button */
+    #searchClose {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      cursor: pointer;
+      padding: 10px 15px;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    #searchClose:hover {
+      background-color: #388e3c;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 500px) {
+      .searchBar .container {
+        padding: 15px;
+      }
+    
+      .search__form input[type="search"] {
+        font-size: 14px;
+        padding: 10px 15px;
+      }
+    
+      #searchClose {
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+    }
+    </style>

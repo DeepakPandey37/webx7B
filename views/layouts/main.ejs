@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= locals.title %></title>
+</head>
+<link rel="stylesheet" href="/css/style.css">
+<script src="/public/js/script.js" defer></script>
+<body class="<%= locals.page === 'login' ? 'login-page' : '' %>">
+
+  <%- include('../partials/search.ejs') %>
+  <div class="container">
+      <!-- Conditionally include header and footer based on the page -->
+      <% if (locals.page !== 'login') { %>
+          <%- include('../partials/header.ejs') %>
+      <% } %>
+
+      <main class="main">
+          <%- body %>
+      </main>
+
+      <% if (locals.page !== 'login') { %>
+          <%- include('../partials/footer.ejs') %>
+      <% } %>
+  </div>
+ 
+    
+ <style>/* General Reset and Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Main Content */
+    .main {
+      padding: 20px;
+      margin-top: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+    }
+    
+    /* Header */
+    header {
+      background-color: #333;
+      color: #ffffff;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    
+    header h1 {
+      font-size: 24px;
+      margin: 0;
+    }
+    
+    header nav {
+      display: flex;
+      gap: 15px;
+    }
+    
+    header nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    header nav a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    
+    footer p {
+      font-size: 14px;
+    }
+    
+    /* Search Bar */
+    .search-bar {
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      background-color: #f7f7f7;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    
+    .search-bar input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    
+    .search-bar button:hover {
+      background-color: #45a049;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+      }
+    
+      header h1, footer p {
+        font-size: 18px;
+      }
+    
+      header nav {
+        flex-direction: column;
+        align-items: center;
+      }
+    
+      .main {
+        padding: 10px;
+      }
+    
+      .search-bar input[type="text"] {
+        width: 70%;
+      }
+    }
+    </style>
+</body>
+</html>
+

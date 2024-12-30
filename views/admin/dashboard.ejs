@@ -1,0 +1,118 @@
+<div class="admin-title">
+  <h2>Posts</h2>
+  <a href="/add-post" class="button">+ Add New</a>
+</div>
+
+<ul class="admin-posts">
+  <% data.forEach(post => { %>
+    <li>
+      <a href="/post/<%= post._id %>">
+        <%= post.title %> &nearr;
+      </a>
+      <div class="admin-post-controls">
+        <a href="/edit-post/<%= post._id %>" class="btn">Edit</a>
+
+        <form action="/delete-post/<%= post._id %>?_method=DELETE" method="POST">
+          <input type="submit" value="Delete" class="btn-delete btn">
+        </form>
+      </div>
+    </li>
+  <% }) %>
+</ul>
+
+<style>
+  /* Admin Title Section */
+  .admin-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .admin-title h2 {
+    font-size: 24px;
+    color: #333;
+  }
+
+  .admin-title .button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+
+  .admin-title .button:hover {
+    background-color: #45a049;
+  }
+
+  /* Admin Posts List */
+  .admin-posts {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .admin-posts li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+
+  .admin-posts li:hover {
+    background-color: #f1f1f1;
+  }
+
+  .admin-posts li a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .admin-posts li a:hover {
+    color: #4CAF50;
+  }
+
+  /* Admin Post Controls */
+  .admin-post-controls {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 6px 12px;
+    font-size: 14px;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .btn-delete {
+    background-color: #e74c3c;
+    border: none;
+  }
+
+  .btn-delete:hover {
+    background-color: #c0392b;
+  }
+
+  .btn {
+    background-color: #3498db;
+    border: none;
+  }
+
+  .btn:hover {
+    background-color: #2980b9;
+  }
+</style>
